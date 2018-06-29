@@ -59,11 +59,12 @@ export const addingItem = newItem => {
     addItem
       .then(response => {
         console.log('POST response.data', response.data);
+        console.log(response.data['Document(s) created']);
         // console.log("newItem", newItem);
         dispatch({
           type: ADDED_ITEM,
           allItems: response.data,
-          newItem: newItem, //TO REVIEW WITH REAL EXAMPLES
+          newItem: response.data['Document(s) created'],
         });
       })
       .catch(e => {
